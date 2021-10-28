@@ -1,0 +1,63 @@
+@keyframes lightVariation {
+  0% {
+    box-shadow: 0px 0px 100px rgba(231, 236, 241, 0.95);
+  }
+  50% {
+    box-shadow: 0px 0px 50px rgba(231, 236, 241, 0.95);
+  }
+  100% {
+    box-shadow: 0px 0px 100px rgba(231, 236, 241, 0.95);
+  }
+}
+@keyframes vibrate {
+  0% {
+    box-shadow: 0px 0px 120px rgba(231, 236, 241, 0.95);
+  }
+  50% {
+    box-shadow: 0px 0px 80px rgba(231, 236, 241, 0.95);
+  }
+  100% {
+    box-shadow: 0px 0px 120px rgba(231, 236, 241, 0.95);
+  }
+}
+body {
+  background: linear-gradient(#6e0f0f, #5e3b0d) no-repeat fixed 50% 50%;
+}
+
+.triangle,
+.triangle:before,
+.triangle:after {
+  animation: lightVariation 3s infinite cubic-bezier(0.57, 0.15, 0.57, 0.95);
+  width: 100px;
+  height: 100px;
+  border-top-right-radius: 30%;
+  background-color: rgba(231, 236, 241, 0.95);
+}
+
+.triangle:before,
+.triangle:after {
+  content: '';
+  position: absolute;
+  margin: 0;
+}
+
+.triangle {
+  position: absolute;
+  transform: rotate(-120deg) skewX(-30deg) scale(1, 0.866);
+  top: calc(50% - (100px / 2));
+  left: calc(50% - (100px / 2));
+}
+
+.triangle:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%);
+}
+
+.triangle:after {
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+
+.triangle:hover,
+.triangle:hover:before,
+.triangle:hover:after {
+  animation: vibrate .5s infinite ease-out;
+}
